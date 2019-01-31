@@ -50,7 +50,9 @@ class Header extends Component {
                 onClick={() => handleChangePage(page, totalPage, this.spinIcon)}
               >
                 {/*<i ref={(icon) => {this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>*/}
-                <i ref={(icon) => {this.spinIcon = icon}} className="iconfont spin">&#xe865;</i>
+                <i ref={(icon) => {
+                  this.spinIcon = icon
+                }} className="iconfont spin">&#xe865;</i>
                 换一批
               </SearchInfoSwitch>
             </SearchInfoTitle>
@@ -83,7 +85,7 @@ class Header extends Component {
               >
                 <NavSearch
                   className={focused ? 'focused' : ''}
-                  onFocus={handleInputFocus}
+                  onFocus={() => handleInputFocus(list)}
                   onBlur={handleInputBlur}
                 ></NavSearch>
               </CSSTransition>
@@ -104,7 +106,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     // focused: state.header.get('focused')
     // focused: state.get('header').get('focused')
@@ -118,8 +120,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleInputFocus: () => {
-      dispatch(actionCreators.getList());
+    handleInputFocus: (list) => {
+      console.log(list);
+      list.size === 0 && dispatch(actionCreators.getList());
       dispatch(actionCreators.searchFocus());
     },
     handleInputBlur: () => {
@@ -136,12 +139,12 @@ const mapDispatchToProps = (dispatch) => {
       let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
       if (originAngle) {
         originAngle = parseInt(originAngle, 10);
-      }else {
+      } else {
         originAngle = 0;
       }
       spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
 
-      if(page < totalPage){
+      if (page < totalPage) {
         dispatch(actionCreators.changePage(page + 1));
       }
       else {
