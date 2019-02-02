@@ -16,9 +16,9 @@ class App extends Component {
         <div className="App">
           <GlobalStyle/>
           <Globaliconfont/>
-          <Header/>
           <BrowserRouter>
             <div>
+              <Header/>
               {
                 /**
                  * exact 完全相等的情况下才显示内容

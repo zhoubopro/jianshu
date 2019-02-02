@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { actionCreators } from '../../../../store/home'
 import { TopicWrapper, TopicItem, MoreTopics } from '../../style';
+// import { actionCreators } from '../../../../store/home'
 
 class Topic extends React.Component {
 
-  componentDidMount() {
-    const { getTopicList } = this.props;
-    getTopicList()
-  }
+  // componentDidMount() {
+  //   const { getTopicList } = this.props;
+  //   getTopicList()
+  // }
 
   render() {
     const { topicList } = this.props;
@@ -40,10 +40,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getTopicList: () => {
-      dispatch(actionCreators.getTopicList());
-    }
+  //   getTopicList: () => {
+  //     dispatch(actionCreators.getTopicList());
+  //   }
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Topic);

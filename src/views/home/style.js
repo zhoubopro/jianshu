@@ -64,7 +64,7 @@ export const MoreTopics = styled.div.attrs()`
 	}
 `;
 
-export const ListItem = styled.div`
+export const ArticleListItem = styled.div`
 	overflow: hidden;
 	padding: 20px 0;
 	border-bottom: 1px solid #dcdcdc;
@@ -90,7 +90,23 @@ export const ListInfo =	styled.div`
 		line-height: 24px;
 		font-size: 13px;
 		color: #999;
+		margin: 0 0 8px;
 	}
+`;
+
+export const Meta = styled.div`
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  .nickname{
+    margin-right: 10px;
+    color: #b4b4b4;
+  }
+  span{
+    margin-right: 10px;
+    color: #b4b4b4;
+  }
 `;
 
 export const RecommendWrapper = styled.div`
@@ -103,6 +119,7 @@ export const RecommendItem = styled.div`
 	height: 50px;
 	background: url(${(props) => props.imgUrl});
 	background-size: contain;
+	margin: -4px 0 10px;
 `;
 
 export const WriterWrapper = styled.div`
