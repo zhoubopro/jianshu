@@ -18,7 +18,7 @@ class ArticleList extends React.Component {
         {
           articleList.map(item => {
             return (
-              <Link to='/detail' key={item}>
+              <Link to={'/detail/' + item.get('id')} key={item}>
                 <ArticleListItem>
                   <img alt='' className='pic' src={item.get('imgUrl')}/>
                   <ListInfo>

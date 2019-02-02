@@ -7,9 +7,11 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './views/home';
-import Detail from './views/detail';
+import Login from './views/login';
+import Detail from './views/detail/loadable';
 
 class App extends Component {
+
   render() {
     return (
       <Provider store={store}>
@@ -25,7 +27,8 @@ class App extends Component {
                  */
               }
               <Route path="/" exact component={Home}></Route>
-              <Route path="/detail" exact component={Detail}></Route>
+              <Route path="/login" exact component={Login}></Route>
+              <Route path="/detail/:id" exact component={Detail}></Route>
             </div>
           </BrowserRouter>
         </div>
